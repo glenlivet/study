@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	</head>
+	<body>
+		<script type="text/x-handlebars">
+			<div>
+
+  				<ul>
+  					{{#each}}
+  						<li>{{title}}</li>
+  					{{/each}}
+  				</ul>
+  				<p>size: {{size}}</p>
+			</div>
+
+			<footer>
+  				&copy;2013 Igor's Publishing, Inc.
+			</footer>
+		</script>
+
+		<script src="js/libs/jquery.js"></script>
+ 		<script src="js/libs/handlebars.js"></script>
+  		<script src="js/libs/ember.js"></script>
+  		<script src="js/libs/ember-data.js"></script>
+  		<script src="js/libs/localstorage_adapter.js"></script>
+  		<script src="js/application.js"></script>
+  		<script src="js/router.js"></script>
+  		<script src="js/models/study.js"></script>
+  		<script src="js/controllers/app_controller.js"></script>
+	</body>
+</html>
