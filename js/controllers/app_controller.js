@@ -3,3 +3,8 @@ App.ApplicationController = Ember.ArrayController.extend({
 		return this.get('length');
 	}.property('model.length')
 });
+
+App.AboutController = Ember.ObjectController.extend({
+	message : 'this is ABOUT section.'
+});
+
