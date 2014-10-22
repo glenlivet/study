@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	</head>
+	<body>
+		
+
+    <script type="text/x-handlebars">
+       Hello, <strong>{{firstName}} {{lastName}}</strong>!
+
+      <p>
+        {{#link-to 'photo.comment' 5 primaryComment}}
+          Main Comment for the Next Photo
+        {{/link-to}}
+      </p>
+      {{outlet}}
+    </script>
+
+
+
+		<script src="js/libs/jquery.js"></script>
+ 		<script src="js/libs/handlebars.js"></script>
+  		<script src="js/libs/ember.js"></script>
+  		<script src="js/libs/ember-data.js"></script>
+  		<script src="js/libs/localstorage_adapter.js"></script>
+      <script>
+        App = Ember.Application.create();
+
+        App.Router.map(function() {
+          this.resource("photos", function(){
+            this.resource("photo", { path: "/:photo_id" }, function(){
+              this.route("comments");
+              this.route("comment", { path: "/comments/:comment_id" });
+            });
+          });
+        });
+
+        var _comment = Ember.Object.create({
+          id : 10
+        });
+
+        App.ApplicationController = Ember.ObjectController.extend({
+          firstName : 'Lily',
+          lastName : 'Sun',
+          primaryComment : _comment
+        });
+
+
+
+        App.PhotoRoute = Ember.Route.extend({
+          model : [{id:5},{id:6}]
+        });
+
+        App.PhotoCommentRoute = Ember.Route.extend({
+          model : [{id: 10}, {id: 20}]
+        });
+
+      </script>
+</html>
